@@ -1,9 +1,17 @@
-let count = 100
+let display1 = document.querySelector('h1')
+let display2 = document.querySelector('h2')
+let btn = document.querySelector('button')
+   function getData(){
     fetch(`https://v2.jokeapi.dev/joke/Any`)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(console.log(console.error() ))
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      display1.innerText = data.setup
+      display2.innerText = data.delivery
+    })
+   }
 
+   btn.addEventListener('click',getData)
       // let btn = document.querySelector("button");
       // let jokesDisplay = document.querySelector("#jokes");
       
